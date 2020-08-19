@@ -2,10 +2,13 @@
 
 ## Getting started
 
-1. Change directory to /laravel
-2. Move .env.example to .env 
-3. Run the following Commands
-
+0. In your browser navigate to: https://gitpod.io/#https://gitpod.io/#https://github.com/mchljams/laravel-gitpod
+1. Open the terminal
+2. Change directory to: "laravel"
+3. Run the following Commands:
+    ```
+    mv .env.example .env 
+    ```
     ```
     composer install
     ```
