@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp .env ../laravel/.env
+cp .env ./laravel/.env
 
 cd ../laravel
 
