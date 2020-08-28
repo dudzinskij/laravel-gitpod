@@ -2,7 +2,7 @@
 
 cp .env ./laravel/.env
 
-cd ../laravel
+cd ./laravel
 
 touch ./database/database.sqlite
 
