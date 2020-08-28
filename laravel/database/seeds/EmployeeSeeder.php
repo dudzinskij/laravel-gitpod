@@ -14,10 +14,10 @@ class EmployeeSeeder extends Seeder
         //
 
         $employees = [
-            'Michael Pisula' => 'michael.pisula@usbank.com',
-            'Dennis Sheehan' => 'dennis.sheehan@usbank.com',
-            'Lahar Shah' => 'lahar.shah@usbank.com',
-            'Shaun Cave' => 'shaun.cave@usbank.com'
+            'Michael P' => 'michael@mysampleapi.com',
+            'Dennis S' => 'michael@mysampleapi.com',
+            'Lahar S' => 'michael@mysampleapi.com',
+            'Shaun C' => 'michael@mysampleapi.com'
         ];
 
         foreach ($employees as $name => $email) {
