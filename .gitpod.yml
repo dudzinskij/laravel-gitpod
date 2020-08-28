@@ -9,4 +9,4 @@ ports:
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   - init: bash ./laravel.sh # runs during prebuild
-    command: echo 'Laravel Started'
+    command: php laravel/artisan serve
