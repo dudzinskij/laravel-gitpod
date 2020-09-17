@@ -62,6 +62,10 @@ class EmployeeController extends Controller
         // Fetch employee by id
         $employee = Employee::find($id);
 
+        if(!$employee) {
+            return response()->json('Employee not found', 404);
+        }
+
         return response()->json([
             "data" => $employee
         ]);
@@ -107,6 +111,10 @@ class EmployeeController extends Controller
     {
         // Fetch employee by id
         $employee = Employee::find($id);
+
+        if(!$employee) {
+            return response()->json('Employee not found', 404);
+        }
 
         // Delete employee
         $employee->delete();
