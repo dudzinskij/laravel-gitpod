@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6ebd3293-f013-42fc-b634-2280a0f80111",
+		"_postman_id": "a7c81e68-179a-419f-8b28-fd521ef79a2f",
 		"name": "WOT API Day - PHP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -24,12 +24,12 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Dhruvi Shah",
+									"value": "Json Bond",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "dhruvishah@test.com",
+									"value": "jsonbond@test.com",
 									"type": "text"
 								}
 							]
@@ -59,14 +59,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/employees/1",
+							"raw": "{{url}}/api/employees/3",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"employees",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -81,11 +81,17 @@
 								"key": "Accept",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
 									"key": "name",
 									"value": "Updated Name",
@@ -93,20 +99,20 @@
 								},
 								{
 									"key": "email",
-									"value": "updatedemail@test.com",
+									"value": "updateemail@test.com",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{url}}/api/employees/1",
+							"raw": "{{url}}/api/employees/5",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"employees",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -124,14 +130,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/employees/1",
+							"raw": "{{url}}/api/employees/5",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"employees",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -161,7 +167,9 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

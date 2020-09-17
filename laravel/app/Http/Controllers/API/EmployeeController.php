@@ -17,8 +17,13 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
-        return Employee::all();
+        // Fetch all Employees
+        $allEmployees = Employee::all();
+
+        // Success Reesponse with all employee data
+        return response()->json([
+            "data" => $allEmployees
+        ]);
     }
 
     /**

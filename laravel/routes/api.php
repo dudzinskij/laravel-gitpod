@@ -24,7 +24,7 @@ Route::post('employees', 'API\EmployeeController@store');
 // READ All employees
 Route::get('employees', 'API\EmployeeController@index');
 // READ Single employee
-Route::get('employees/{id}', 'API\EmployeeController@index');
+Route::get('employees/{id}', 'API\EmployeeController@show');
 
 // UPDATE
 Route::put('employees/{id}', 'API\EmployeeController@update');
