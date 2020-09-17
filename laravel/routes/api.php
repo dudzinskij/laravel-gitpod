@@ -18,4 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('employees', 'API\EmployeeController');
+// CREATE
+Route::post('employees', 'API\EmployeeController@store');
+
+// READ All employees
+Route::get('employees', 'API\EmployeeController@index');
+// READ Single employee
+Route::get('employees/{id}', 'API\EmployeeController@show');
+
+// UPDATE
+Route::put('employees/{id}', 'API\EmployeeController@update');
+
+// DELETE
+Route::delete('employees/{id}', 'API\EmployeeController@destroy');
+
