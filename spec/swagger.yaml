@@ -12,9 +12,9 @@ paths:
     get:
       tags:
       - employees
-      summary: Fetch all employess
-      description: Returns all employess
-      operationId: index
+      summary: Fetch all employees
+      description: Returns all employees
+      operationId: employee.index
       responses:
         200:
           description: successful operation
@@ -26,7 +26,7 @@ paths:
       tags:
       - employees
       summary: Add a new employee
-      operationId: store
+      operationId: employee.store
       requestBody:
         description: Employee object that needs to be added
         content:
@@ -57,7 +57,7 @@ paths:
       - employees
       summary: Find employee by ID
       description: Returns a single employee
-      operationId: show
+      operationId: employee.show
       parameters:
       - name: employeeId
         in: path
@@ -80,7 +80,7 @@ paths:
       tags:
       - employees
       summary: Update an existing employee
-      operationId: update
+      operationId: employee.update
       parameters:
       - name: employeeId
         in: path
@@ -119,7 +119,7 @@ paths:
       tags:
       - employees
       summary: Deletes an employee
-      operationId: destroy
+      operationId: employee.destroy
       parameters:
       - name: employeeId
         in: path
