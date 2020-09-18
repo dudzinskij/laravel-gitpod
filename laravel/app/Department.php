@@ -12,4 +12,9 @@ class Department extends Model
         'description',
         'slogan'
     ];
+
+    protected $hidden = [
+        'updated_at',
+        'created_at'
+    ];
 }

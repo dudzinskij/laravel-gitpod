@@ -60,7 +60,7 @@ class EmployeeController extends Controller
     public function show($id)
     {
         // Fetch employee by id
-        $employee = Employee::find($id);
+        $employee = Employee::findOrFail($id);
 
         if(!$employee) {
             return response()->json('Employee not found', 404);
@@ -85,7 +85,7 @@ class EmployeeController extends Controller
         $validated = $request->validated();
 
         // Fetch employee by id
-        $employee = Employee::find($id);
+        $employee = Employee::findOrFail($id);
 
         // Update employee from request body parameters
         $employee->name = $validated['name'];
@@ -110,7 +110,7 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         // Fetch employee by id
-        $employee = Employee::find($id);
+        $employee = Employee::findOrFail($id);
 
         if(!$employee) {
             return response()->json('Employee not found', 404);

@@ -28,7 +28,7 @@ class EmployeeUpdateRequest extends FormRequest
         $id = $this->route('id');
         return [
             'name' => 'required|min:5|max:255',
-            'email'=> 'required|unique:employees,email,' . $id
+            'email'=> 'required|email|unique:employees,email,' . $id
         ];
     }
 

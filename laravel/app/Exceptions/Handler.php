@@ -4,6 +4,10 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Database\QueryException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler
 {
@@ -50,6 +54,33 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+        if ($exception instanceof NotFoundHttpException && $request->wantsJson()) {
+            return response()->json([
+                'data' => 'Resource not found'
+            ], 404);
+        }
+
+        if ($exception instanceof ModelNotFoundException) {
+            return response()->json([
+                'data' => 'Resource not found'
+            ], 404);
+        }
+
+        if ($exception instanceof QueryException && $request->wantsJson()) {
+            return response()->json([
+                'message' => 'Bad Request'
+            ], 400);
+        }
+
+        // return not authorized when application
+        // tries to redirect to  the login route
+        if ($exception instanceof RouteNotFoundException) {
+            return response()->json([
+                'message' => 'Not Authorized'
+            ], 401);
+        }
+
         return parent::render($request, $exception);
     }
 }

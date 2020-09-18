@@ -27,7 +27,7 @@ class EmployeeCreateRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5|max:255',
-            'email'=>'required|unique:employees,email'
+            'email'=>'required|email|unique:employees,email'
         ];
     }
 
