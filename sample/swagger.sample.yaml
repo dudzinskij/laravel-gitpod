@@ -1,0 +1,319 @@
+openapi: 3.0.1
+info:
+  title: Employee API
+  description: 'A sample API using employee record management as an example.'
+  version: 1.0.0
+
+servers:
+- url: https://8000-b9cba879-eb35-4d0b-ad51-a8d6691bd3c3.ws-us02.gitpod.io/api/
+
+paths:
+  /employees:
+    get:
+      tags:
+      - employees
+      summary: Fetch all employees
+      description: Returns all employees
+      operationId: employee.index
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeesResponse'
+    post:
+      tags:
+      - employees
+      summary: Add a new employee
+      operationId: employee.store
+      requestBody:
+        description: Employee object that needs to be added
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmployeeForm'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: 'Employee is created successfully.'
+                allOf:    
+                  - $ref: '#/components/schemas/EmployeeResponse'
+                  - type: object
+        422:
+          description: Unprocessable Entity
+          content: {}
+
+  /employees/{employeeId}:
+    get:
+      tags:
+      - employees
+      summary: Find employee by ID
+      description: Returns a single employee
+      operationId: employee.show
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeResponse'
+        404:
+          description: Not Found
+          content: {}
+    put:
+      tags:
+      - employees
+      summary: Update an existing employee
+      operationId: employee.update
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of employee to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Employee object that needs to be added
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmployeeForm'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: 'Employee is updated successfully.'
+                allOf:    
+                  - $ref: '#/components/schemas/EmployeeResponse'
+                  - type: object
+        404:
+          description: Not Found
+          content: {}
+        422:
+          description: Unprocessable Entity
+          content: {}
+    delete:
+      tags:
+      - employees
+      summary: Deletes an employee
+      operationId: employee.destroy
+      parameters:
+      - name: employeeId
+        in: path
+        description: Employee id to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: 'Employee is deleted successfully.'
+                allOf:    
+                  - $ref: '#/components/schemas/EmployeeResponse'
+                  - type: object
+        404:
+          description: Not Found
+          content: {}
+          
+  /departments:
+    get:
+      tags:
+      - departments
+      summary: Fetch all departments
+      description: Returns all departments
+      operationId: department.index
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeesResponse'
+    post:
+      tags:
+      - departments
+      summary: Add a new department
+      operationId: department.store
+      requestBody:
+        description: Department object that needs to be added
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmployeeForm'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: 'Department is created successfully.'
+                allOf:    
+                  - $ref: '#/components/schemas/EmployeeResponse'
+                  - type: object
+        422:
+          description: Unprocessable Entity
+          content: {}
+          
+  /departments/{departmentId}:
+    get:
+      tags:
+      - departments
+      summary: Find department by ID
+      description: Returns a single department
+      operationId: department.show
+      parameters:
+      - name: departmentId
+        in: path
+        description: ID of department to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeResponse'
+        404:
+          description: Not Found
+          content: {}
+    put:
+      tags:
+      - departments
+      summary: Update an existing department
+      operationId: department.update
+      parameters:
+      - name: departmentId
+        in: path
+        description: ID of department to return
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: Department object that needs to be added
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EmployeeForm'
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: 'Department is updated successfully.'
+                allOf:    
+                  - $ref: '#/components/schemas/EmployeeResponse'
+                  - type: object
+        404:
+          description: Not Found
+          content: {}
+        422:
+          description: Unprocessable Entity
+          content: {}
+    delete:
+      tags:
+      - departments
+      summary: Deletes a department
+      operationId: department.destroy
+      parameters:
+      - name: departmentId
+        in: path
+        description: Department id to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    example: 'Department is deleted successfully.'
+                allOf:    
+                  - $ref: '#/components/schemas/EmployeeResponse'
+                  - type: object
+        404:
+          description: Not Found
+          content: {}
+components:
+  schemas:
+    EmployeeForm:
+      required:
+      - name
+      - email
+      type: object
+      properties:
+        name:
+          type: string
+          example: Jane Doe
+        email:
+          type: string
+          example: jane.doe@mysampleapi.com
+    Employee:
+      allOf:    
+        - $ref: '#/components/schemas/EmployeeForm'
+        - type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+    EmployeeResponse:
+      properties:
+        data:
+          $ref: '#/components/schemas/Employee'
+    EmployeesResponse:
+      properties:
+        data:
+          items:
+             oneOf:
+                - $ref: '#/components/schemas/Employee'
+                - $ref: '#/components/schemas/Employee'
+
+
+
