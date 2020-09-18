@@ -5,7 +5,11 @@ info:
   version: 1.0.0
 
 servers:
-- url: https://8000-b9cba879-eb35-4d0b-ad51-a8d6691bd3c3.ws-us02.gitpod.io/api/
+  - url: '{base}/api/'
+    variables:
+      base:
+        default: 'https://8000-b9cba879-eb35-4d0b-ad51-a8d6691bd3c3.ws-us02.gitpod.io'
+        description: Customer ID assigned by the service provider
 
 paths:
   /employees:
